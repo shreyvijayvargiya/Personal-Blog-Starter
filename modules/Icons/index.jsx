@@ -6,6 +6,7 @@ import {
 	AiFillInstagram,
 	AiOutlineArrowDown,
 	AiOutlineClockCircle,
+	AiTwotoneHourglass,
 } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
 import { SiHashnode } from "react-icons/si";
@@ -53,6 +54,9 @@ export const InstagramIcon = () => {
 	return <AiFillInstagram size={24} className="dark:text-gray-400" />;
 };
 
+export const ReadingTime = () => {
+	return <AiTwotoneHourglass size={18} className="dark:text-gray-400" />;
+}
 const RenderIconComponent = ({ name }) => {
 	if (name === "Twitter") {
 		return <TwitterIcon />;

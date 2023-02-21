@@ -1,5 +1,5 @@
 import React from "react";
-import { DateIcon, DownArrow } from "modules/Icons";
+import { DateIcon, DownArrow, ReadingTime } from "modules/Icons";
 import router from "next/router";
 import { BlogCard } from "modules";
 
@@ -20,21 +20,60 @@ const Home = () => {
 			title: "50 Frontend Interview Questions",
 			image:
 				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png",
-			publishedDate: "21 Jan , 2023",
+			publishedDate: "21Jan",
+			description:
+				"Save the blog for the future and CRACK any interview in the WORLD.",
+			readingTime: "4 min",
 		},
 		{
 			id: 2,
 			title: "50 React Native Interview Questions",
 			image:
 				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png",
-			publishedDate: "15 Jan, 2023",
+			publishedDate: "15Jan",
+			readingTime: "3 min",
+			description:
+				"Save the blog for the future and CRACK any interview in the WORLD.",
 		},
 		{
 			id: 3,
 			title: "50 Node JS Interview Questions",
 			image:
 				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png",
-			publishedDate: "12 Jan, 2023",
+			publishedDate: "12Jan",
+			readingTime: "4 min",
+			description:
+				"Save the blog for the future and CRACK any interview in the WORLD.",
+		},
+		{
+			id: 4,
+			title: "50 Frontend Interview Questions",
+			image:
+				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png",
+			publishedDate: "21Jan",
+			readingTime: "4 min",
+			description:
+				"Save the blog for the future and CRACK any interview in the WORLD.",
+		},
+		{
+			id: 5,
+			title: "50 React Native Interview Questions",
+			image:
+				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png",
+			publishedDate: "15Jan",
+			readingTime: "4 min",
+			description:
+				"Save the blog for the future and CRACK any interview in the WORLD.",
+		},
+		{
+			id: 6,
+			title: "50 Node JS Interview Questions",
+			image:
+				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png",
+			publishedDate: "12Jan",
+			readingTime: "5 min",
+			description:
+				"Save the blog for the future and CRACK any interview in the WORLD.",
 		},
 	];
 
@@ -58,19 +97,29 @@ const Home = () => {
 					<DownArrow />
 				</div>
 			</div>
-			<p className="text-2xl my-4 md:w-4/5  text-left sm:w-full xxs:w-full xs:w-full">
-				Latest Blogs
-			</p>
-			<div className="grid text-left md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 xs:grid-cols-1 p-2 gap-4 md:w-4/5 mx-auto sm:w-full xxs:w-full xs:w-full ">
+			<div className="grid text-left md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 xs:grid-cols-1 p-2 gap-4 md:w-3/5 sm:w-full xxs:w-full xs:w-full ">
 				{blogs.map((item) => (
 					<div onClick={() => openBlog(item.id)}>
 						<BlogCard>
-							<p className="text-xl my-2">{item.title}</p>
-							<img src={item.image} className="w-full h-60 rounded-md" />
-							<div className="flex justify-start gap-1 items-center w-full">
-								<DateIcon />
-								<p className="text-sm text-gray-800">{item.publishedDate}</p>
+							<p className="text-xl">{item.title}</p>
+							<div className="flex justify-start gap-1 items-center text-xs text-gray-800 mb-3">
+								<div className="flex justify-start gap-2 items-center">
+									<div className="flex justify-start gap-1 items-center">
+										<DateIcon />
+										<p className="text-gray-800 dark:text-gray-400">
+											{item.publishedDate}
+										</p>
+									</div>
+									<div className="flex justify-start gap-1 items-center">
+										<ReadingTime />
+										<p className="text-gray-800 dark:text-gray-400">
+											{item?.readingTime}
+										</p>
+									</div>
+								</div>
 							</div>
+							<img src={item.image} className="w-full h-40 rounded-md" />
+							<p className="my-3">{item?.description}</p>
 						</BlogCard>
 					</div>
 				))}

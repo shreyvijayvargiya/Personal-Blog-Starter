@@ -1,21 +1,14 @@
 import router from "next/router";
 import React from "react";
-import { PostOne, PostThree, PostTwo } from "modules";
+import { SingleBlog } from "modules";
 
 const BlogComponent = () => {
+	const id = router.query.id;
 
-  const id = router.query.id;
-  const SingleBlog = () => {
-    if (id === 1) return <PostOne />;
-		else if (id === 2) return <PostTwo />;
-		else if (id === 3) return <PostThree />;
-		else return <PostOne />;
-  };
-
-  return (
-    <div className="h-screen py-10">
-      <SingleBlog />
-    </div>
-  )
+	return (
+		<div className="h-auto py-10 md:w-2/5 sm:w-full xxs:w-full xs:w-full mx-auto">
+			<SingleBlog id={id} />
+		</div>
+	);
 };
 export default BlogComponent;
