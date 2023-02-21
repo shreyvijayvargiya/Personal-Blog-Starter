@@ -1,18 +1,42 @@
 import React from "react";
-import { DownArrow } from "modules/Icons";
+import { DateIcon, DownArrow } from "modules/Icons";
 import router from "next/router";
+import { BlogCard } from "modules";
 
 const Home = () => {
-
 	const scrollToDown = React.useCallback(() => {
 		if (typeof window !== "undefined") {
 			window.scrollBy({ top: 600, left: 0, behavior: "smooth" });
 		}
 	}, []);
 
-	const openBlog = () => {
-		router.push("/")
-	}
+	const openBlog = (id) => {
+		router.push(`/blog/${id}`);
+	};
+
+	const blogs = [
+		{
+			id: 1,
+			title: "50 Frontend Interview Questions",
+			image:
+				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png",
+			publishedDate: "21 Jan , 2023",
+		},
+		{
+			id: 2,
+			title: "50 React Native Interview Questions",
+			image:
+				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png",
+			publishedDate: "15 Jan, 2023",
+		},
+		{
+			id: 3,
+			title: "50 Node JS Interview Questions",
+			image:
+				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png",
+			publishedDate: "12 Jan, 2023",
+		},
+	];
 
 	return (
 		<div className="flex flex-col justify-center items-center gap-4">
@@ -34,50 +58,22 @@ const Home = () => {
 					<DownArrow />
 				</div>
 			</div>
-			<p className="text-2xl my-4 text-left">Latest Blogs</p>
-			<div className="grid text-left md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 xs:grid-cols-1 p-4 gap-4 md:w-4/5 mx-auto sm:w-full xxs:w-full xs:w-full ">
-				<div className="border rounded-md p-2 hover:bg-gray-50 dark:bg-gray-900 dark:hover:border-gray-700 dark:border-gray-800">
-					<p className="text-2xl my-2">50 Frontend Interview Questions</p>
-					<img
-						src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png"
-						className="w-full h-60 rounded-md"
-					/>
-				</div>
-				<div className="border rounded-md p-2 hover:bg-gray-50 dark:bg-gray-900 dark:hover:border-gray-700 dark:border-gray-800">
-					<p className="text-2xl my-2">50 React Native Interview Questions</p>
-					<img
-						src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png"
-						className="w-full h-60 rounded-md"
-					/>
-				</div>
-				<div className="border rounded-md p-2 hover:bg-gray-50 dark:bg-gray-900 dark:hover:border-gray-700 dark:border-gray-800">
-					<p className="text-2xl my-2">50 Node JS Interview Questions</p>
-					<img
-						src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png"
-						className="w-full h-60 rounded-md"
-					/>
-				</div>
-				<div className="border rounded-md p-2 hover:bg-gray-50 dark:bg-gray-900 dark:hover:border-gray-700 dark:border-gray-800">
-					<p className="text-2xl my-2">50 Frontend Interview Questions</p>
-					<img
-						src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png"
-						className="w-full h-60 rounded-md"
-					/>
-				</div>
-				<div className="border rounded-md p-2 hover:bg-gray-50 dark:bg-gray-900 dark:hover:border-gray-700 dark:border-gray-800">
-					<p className="text-2xl my-2">50 React Native Interview Questions</p>
-					<img
-						src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png"
-						className="w-full h-60 rounded-md"
-					/>
-				</div>
-				<div className="border rounded-md p-2 hover:bg-gray-50 dark:bg-gray-900 dark:hover:border-gray-700 dark:border-gray-800">
-					<p className="text-2xl my-2">50 Node JS Interview Questions</p>
-					<img
-						src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png"
-						className="w-full h-60 rounded-md"
-					/>
-				</div>
+			<p className="text-2xl my-4 md:w-4/5  text-left sm:w-full xxs:w-full xs:w-full">
+				Latest Blogs
+			</p>
+			<div className="grid text-left md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 xs:grid-cols-1 p-2 gap-4 md:w-4/5 mx-auto sm:w-full xxs:w-full xs:w-full ">
+				{blogs.map((item) => (
+					<div onClick={() => openBlog(item.id)}>
+						<BlogCard>
+							<p className="text-xl my-2">{item.title}</p>
+							<img src={item.image} className="w-full h-60 rounded-md" />
+							<div className="flex justify-start gap-1 items-center w-full">
+								<DateIcon />
+								<p className="text-sm text-gray-800">{item.publishedDate}</p>
+							</div>
+						</BlogCard>
+					</div>
+				))}
 			</div>
 		</div>
 	);

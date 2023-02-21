@@ -5,13 +5,28 @@ import {
 	AiFillYoutube,
 	AiFillInstagram,
 	AiOutlineArrowDown,
+	AiOutlineClockCircle,
 } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
 import { SiHashnode } from "react-icons/si";
 
 export const DownArrow = () => {
-	return <AiOutlineArrowDown size={20} className="w-full text-center mx-auto dark:text-gray-400 my-2" />;
+	return (
+		<AiOutlineArrowDown
+			size={20}
+			className="w-full text-center mx-auto dark:text-gray-400 my-2"
+		/>
+	);
 };
+export const DateIcon = () => {
+	return (
+		<AiOutlineClockCircle
+			size={18}
+			className="w-full text-center mx-auto dark:text-gray-400 my-2"
+		/>
+	);
+};
+
 export const TwitterIcon = () => {
 	return <AiFillTwitterCircle size={24} className="dark:text-gray-400" />;
 };
@@ -47,7 +62,7 @@ const RenderIconComponent = ({ name }) => {
 	else if (name === "Youtube") return <YoutubeIcon />;
 	else if (name === "Hashnode") return <HashnodeIcon />;
 	else if (name === "Instagram") return <InstagramIcon />;
+	else if (name === "Date") return <DateIcon />;
 	else return null;
 };
 export default RenderIconComponent;
-

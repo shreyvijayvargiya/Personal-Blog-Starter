@@ -1,6 +1,7 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
 	enabled: process.env.ANALYZE === "true",
 });
+
 const withMDX = require("@next/mdx")({
 	extension: /\.mdx?$/,
 	options: {
@@ -14,36 +15,18 @@ const withMDX = require("@next/mdx")({
 	},
 });
 
-
-module.exports = (phase, defaultConfig) => {
-	return {
-		experimental: {
-			esmExternals: false,
-		},
-		webpack: (config, options) => {
-			config.module.rules.push({
-				test: /\.mdx?$/,
-				use: [
-					options.defaultLoaders.babel,
-					{
-						loader: "@mdx-js/loader",
-						options: {
-							providerImportSource: "@mdx-js/react",
-						},
-					},
-				],
-			});
-			config.node = {
-				fs: "empty",
-				child_process: "empty",
-				net: "empty",
-				dns: "empty",
-				tls: "empty",
-			};
-			return config;
-		},
-		...withBundleAnalyzer({}),
-		reactStrictMode: true,
-		pageExtensions: ["js", "jsx", "md", "mdx"],
-	};
-};
+module.exports = () => ({
+	webpack: (config, options) => {
+		config.node = {
+			fs: "empty",
+			child_process: "empty",
+			net: "empty",
+			dns: "empty",
+			tls: "empty",
+		};
+		return config;
+	},
+	...withBundleAnalyzer({}),
+	reactStrictMode: true,
+	pageExtensions: ["js", "jsx", "md", "mdx"],
+});
