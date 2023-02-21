@@ -1,5 +1,6 @@
 import React from "react";
 import { SubscribeComponent, RenderIconComponent } from "modules";
+import router from "next/router";
 
 const Footer = () => {
 	const socialLinks = [

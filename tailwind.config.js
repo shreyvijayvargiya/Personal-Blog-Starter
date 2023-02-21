@@ -12,6 +12,7 @@ module.exports = {
 			"./components/**/*.{js,ts,jsx,tsx}",
 			"./modules/**/*.{js,ts,jsx,tsx}",
 			"./utils/**/*.{js,ts,jsx,tsx}",
+			"./admin/**/*.{js,jsx,ts,tsx}"
 		],
 	},
 	darkMode: "class", // or 'media' or 'class'
