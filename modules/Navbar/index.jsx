@@ -31,7 +31,12 @@ const Navbar = () => {
 					</div>
 				</div>
 				<div>
-					<SubscribeComponent flex />
+					<button onClick={() => router.push("/subscribe")} className="bg-gray-900 text-white m-2 hover:bg-black rounded-md p-2 focus:outline-none outline-none dark:bg-indigo-900">
+						Subscribe
+					</button>
+					<div>
+						{user.theme === "light" ? "" :""}
+					</div>
 				</div>
 			</div>
 			<div className="flex justify-start gap-2 fixed bottom-5 right-5 z-10">
