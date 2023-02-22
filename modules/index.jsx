@@ -7,4 +7,4 @@ export { default as BlogCard } from "./Card/BlogCard";
 
 
 // exporting blog post
-export { default as SingleBlog } from "./Blogs";
+export { default as SingleBlog } from "./Card/SingleBlog";

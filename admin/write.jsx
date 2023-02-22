@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import AdminLayout from "./Layout";
 import { postBlog } from "utils/api/blogsApi";
+import firebase from "firebase";
 
 const EditorComponent = dynamic(import("./Editor"), { ssr: false });
 
@@ -14,6 +15,7 @@ const WriteBlog = () => {
 		bannerImage: "",
 	});
 
+
   const submitBlog = () => {
     const val = {
       publishedDate: Date.now(),
@@ -24,7 +26,6 @@ const WriteBlog = () => {
 
 	const getBlogData = async () => {
 		const data = await editorCore.current._editorJS.save();
-    console.log(JSON.stringify(data), "JSON.stringify(data)");
     setValues(prevState => ({ ...prevState, data: JSON.stringify(data)}))
 	};
 

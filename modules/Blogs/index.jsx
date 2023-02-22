@@ -1,16 +1,17 @@
 import React from "react";
+import { useQuery } from "react-query";
+import { fetchSingleBlog } from "utils/api/blogsApi";
 
 const SingleBlog = ({ id }) => {
   
-  const Blog = React.useCallback(() => {
-		if (id === 1) return <PostOne />;
-		else if (id === 2) return <PostTwo />;
-		else if (id === 3) return <PostThree />;
-	}, [id]);
+  const {data, isLoading } = useQuery([`${id}`, id], async() => {
+    await fetchSingleBlog(id)
+  });
+  console.log(data, "data");
 
   return (
     <div>
-      <Blog />
+      <p>Single blog page</p>
     </div>
   )
 }

@@ -1,5 +1,8 @@
-import app from "utils/firebase"
+import firebase from "firebase"
 
-export const addSubscriber = (userEmail) => {
-
+export const addSubscriber = async(userEmail) => {
+  await firebase.firestore().collection("EmailSubscribers").add({ 
+    email: userEmail,
+    subscribedAt: Date.now(),
+  })
 };

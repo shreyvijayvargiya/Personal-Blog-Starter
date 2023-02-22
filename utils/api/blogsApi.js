@@ -3,18 +3,21 @@ import { toast } from "react-toastify";
 
 export const fetchAllBlogs = async() => {
   const blogs = [];
-  const data = await firebase.firestore().collection("blogs").get();
+  const firestore = firebase.firestore();
+  const data = await firestore.collection("/blogs").get();
   data.docs.map(item => {
     blogs.push({
       ...item.data(),
       id: item.id
     })
   });
+  console.log(blogs, "blogs")
   return blogs;
 };
 
 export const fetchSingleBlog = async(id) => {
   const data = await firebase.firestore().collection("blogs").doc(id).get();
+ 
   return data.data()
 };
 
@@ -31,6 +34,6 @@ export const updateBlog = async(id, values) => {
 
 export const postBlog = async(values) => {
   const firestore = firebase.firestore();
-  await firestore.collection("threads").add(values);
+  await firestore.collection("/blogs").add(values);
   toast.success("Blog posted successfully")
 }
