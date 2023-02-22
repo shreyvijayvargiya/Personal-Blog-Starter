@@ -14,7 +14,7 @@ const Body = ({ children }) => {
 
 	return (
 		<div
-			className={`${data.theme} outline-none`}
+			className={`${data.theme} outline-none h-full`}
 			tabIndex="0"
 			onKeyDown={(e) => {
 				if (e.key === "t") {
@@ -22,7 +22,7 @@ const Body = ({ children }) => {
 				}
 			}}
 		>
-			<div className={`${data.theme} text-center bg-white dark:bg-gray-900 dark:text-gray-100 outline-none h-auto`}>
+			<div className={`${data.theme} text-center bg-white dark:bg-gray-900 dark:text-gray-100 outline-none h-screen`}>
 				<Navbar />
 				<div className="w-full text-center py-10 ">
 					{children}
