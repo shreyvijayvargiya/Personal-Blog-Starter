@@ -35,7 +35,7 @@ const Footer = () => {
 	];
 
 	return (
-		<div className="flex flex-col justify-start items-center gap-1 w-full border-t border-gray-300 dark:border-gray-800 p-4">
+		<div className="flex flex-col justify-start items-center gap-1 w-full border-t border-gray-300 dark:border-gray-800 p-4 z-10">
 			<div className="flex justify-start flex-col gap-1 items-center">
 				<img
 					src="./images/avatar.png"

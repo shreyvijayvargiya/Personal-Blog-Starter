@@ -7,9 +7,12 @@ import {
 	AiOutlineArrowDown,
 	AiOutlineClockCircle,
 	AiTwotoneHourglass,
+	AiOutlineHome,
 } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
+import { BsFillPencilFill } from "react-icons/bs";
 import { SiHashnode } from "react-icons/si";
+import { MdOutlineArticle } from "react-icons/md";
 
 export const DownArrow = () => {
 	return (
@@ -19,6 +22,21 @@ export const DownArrow = () => {
 		/>
 	);
 };
+export const HomeIcon = () => {
+	return (
+		<AiOutlineHome size={18} className="dark:text-gray-400" />
+	)
+}
+export const BlogsIcon = () => {
+	return (
+		<MdOutlineArticle size={18} className="dark:text-gray-400" />
+	)
+}
+export const WriteIcon = () => {
+	return (
+		<BsFillPencilFill size={18} className="dark:text-gray-400" />
+	)
+}
 export const DateIcon = () => {
 	return (
 		<AiOutlineClockCircle
