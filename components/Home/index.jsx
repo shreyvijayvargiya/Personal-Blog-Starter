@@ -44,31 +44,27 @@ const Home = () => {
 			<div className="grid text-left md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 xs:grid-cols-1 p-2 gap-4 md:w-3/5 sm:w-full xxs:w-full xs:w-full ">
 				{!isLoading &&
 					blogs &&
-					blogs.map((item) => (
-						<div onClick={() => openBlog(item.id)}>
-							<BlogCard>
-								<p className="text-xl">{item.title}</p>
-								<p className="my-1">{item.description}</p>
-								<img src={item.thumbnail} className="w-full h-40 rounded-md" />
-								<div className="flex justify-start gap-1 items-center text-xs text-gray-800 mb-3">
-									<div className="flex justify-start gap-2 items-center">
-										<div className="flex justify-start gap-1 items-center">
-											<DateIcon />
-											{/* <p className="text-gray-800 dark:text-gray-400">
-											{item.publishedDate}
-										</p> */}
-										</div>
-										<div className="flex justify-start gap-1 items-center">
-											<ReadingTime />
-											<p className="text-gray-800 dark:text-gray-400">
-												{item?.readingTime}
-											</p>
-										</div>
+					blogs.map((item) => {
+						const date = new Date(item?.publishedDate).toString().split(" ");
+						return (
+							<div onClick={() => openBlog(item.id)}>
+								<BlogCard>
+									<p className="text-xl">{item.title}</p>
+									<p className="my-1">{item.description}</p>
+									<img
+										src={item.thumbnail}
+										className="w-full h-40 rounded-md"
+									/>
+									<div className="flex justify-start gap-1 items-center text-xs text-gray-800 m-1">
+										<DateIcon />
+										<p className="text-gray-800 dark:text-gray-400 w-full">
+											{date[2] + " " + date[1] + ", " + date[0]}
+										</p>
 									</div>
-								</div>
-							</BlogCard>
-						</div>
-					))}
+								</BlogCard>
+							</div>
+						);
+					})}
 			</div>
 		</div>
 	);

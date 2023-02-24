@@ -15,16 +15,16 @@ const Body = ({ children }) => {
 
 	return (
 		<div
-			className={`${data.theme} outline-none h-full`}
+			className={`${data.theme} outline-none h-auto min-h-screen`}
 			tabIndex="0"
-			// onKeyDown={(e) => {
-			// 	if (e.key === "t") {
-			// 		toggle();
-			// 	}
-			// }}
+			onKeyDown={(e) => {
+				if (e.key === "t") {
+					toggle();
+				}
+			}}
 		>
 			<div
-				className={`${data.theme} text-center bg-white dark:bg-gray-900 dark:text-gray-100 outline-none h-screen`}
+				className={`${data.theme} text-center bg-white dark:bg-gray-900 dark:text-gray-100 outline-none h-full min-h-screen`}
 			>
 				<Navbar />
 				<div className="w-full text-center py-10 ">{children}</div>

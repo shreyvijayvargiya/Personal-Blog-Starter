@@ -31,7 +31,7 @@ const Navbar = () => {
 					</div>
 				</div>
 				<div>
-					<button onClick={() => router.push("/subscribe")} className="bg-gray-900 text-white m-2 hover:bg-black rounded-md p-2 focus:outline-none outline-none dark:bg-indigo-900">
+					<button onClick={() => router.push("/subscribe")} className="bg-gray-900 text-white m-2 hover:bg-black rounded-md p-2 focus:outline-none outline-none dark:bg-gray-50 dark:text-gray-900">
 						Subscribe
 					</button>
 					<div>

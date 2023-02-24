@@ -41,7 +41,7 @@ export const DateIcon = () => {
 	return (
 		<AiOutlineClockCircle
 			size={18}
-			className="w-full text-center mx-auto dark:text-gray-400 my-2"
+			className="dark:text-gray-400 my-2"
 		/>
 	);
 };
