@@ -35,37 +35,39 @@ const Footer = () => {
 	];
 
 	return (
-		<div className="flex flex-col justify-start items-center gap-1 w-full border-t border-gray-300 dark:border-gray-800 p-4 z-10">
-			<div className="flex justify-start flex-col gap-1 items-center">
-				<img
-					src="./images/avatar.png"
-					className="w-40 h-40 rounded-full mx-2"
-				/>
-				<div
-					className="text-sm cursor-pointer"
-					onClick={() => router.push("/")}
-				>
-					John Doe
-				</div>
-			</div>
-			<br />
-			<SubscribeComponent flex={false} />
-			<br />
-			<br />
-			<div className="p-2">
-				<p className="text-2xl">Social Media</p>
-			</div>
-			<div className="flex justify-around items-center gap-1 p-4">
-				{socialLinks.map((item) => (
-					<a
-						href={item?.link}
-						key={item?.name}
-						target="_blank"
-						className="m-2 flex justify-start items-center gap-1"
+		<div className="w-full border-t border-gray-300 dark:border-gray-800 p-4 z-10">
+			<div className="flex md:flex-row sm:flex-col xxs:flex-col xs:flex-col gap-4 justify-between items-center md:w-2/5 mx-auto sm:w-full xxs:w-full xs:w-full p-10">
+				<div className="flex justify-start flex-col gap-1 items-center">
+					<img
+						src="./images/avatar.png"
+						className="w-40 h-40 rounded-full mx-2"
+					/>
+					<div
+						className="text-sm cursor-pointer"
+						onClick={() => router.push("/")}
 					>
-						<RenderIconComponent name={item?.name} />
-					</a>
-				))}
+						John Doe
+					</div>
+				</div>
+				<SubscribeComponent flex={false} />
+			</div>
+			<div className="border-t border-gray-300 dark:border-gray-800 w-full" />
+			<div className="mx-auto md:w-1/5 sm:w-full xxs:w-full xs:w-full p-10">
+				<div className="p-2">
+					<p className="text-2xl">Social Media</p>
+				</div>
+				<div className="flex  justify-around items-center gap-1 p-4">
+					{socialLinks.map((item) => (
+						<a
+							href={item?.link}
+							key={item?.name}
+							target="_blank"
+							className="m-2 flex justify-start items-center gap-1"
+						>
+							<RenderIconComponent name={item?.name} />
+						</a>
+					))}
+				</div>
 			</div>
 		</div>
 	);

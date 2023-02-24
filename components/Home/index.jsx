@@ -49,8 +49,8 @@ const Home = () => {
 						return (
 							<div onClick={() => openBlog(item.id)}>
 								<BlogCard>
-									<p className="text-xl">{item.title}</p>
-									<p className="my-1">{item.description}</p>
+									<p className="text-xl my-2">{item.title}</p>
+									<p className="my-2 text-sm">{item.description}</p>
 									<img
 										src={item.thumbnail}
 										className="w-full h-40 rounded-md"

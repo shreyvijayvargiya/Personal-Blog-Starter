@@ -34,8 +34,9 @@ const SubscribeComponent = ({ flex }) => {
 				flex === true
 					? "grid grid-cols-2 items-center gap-1"
 					: "flex flex-col justify-center"
-			}`}
+			} shadow-lg hover:shadow-xl p-2` }
 		>
+			<p className="text-left text-sm m-2">Subscribe to our Newsletter</p>
 			<input
 				className="p-2 focus:none outline-none border hover:bg-gray-50 cursor-pointer border-gray-900 rounded-md m-2 dark:bg-gray-800 dark:border-gray-900"
 				placeholder="Enter email"
