@@ -2,3 +2,7 @@ body {
   margin: 0px;
   background-color: white !important;
 }
+
+.ce-block__content {
+  margin: 0px !important;
+}

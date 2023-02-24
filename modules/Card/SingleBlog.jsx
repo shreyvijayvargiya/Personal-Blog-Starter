@@ -20,7 +20,8 @@ const SingleBlog = ({ id }) => {
 			) : (
 				<div className="text-left">
 					<p className="text-3xl my-3">{data.title}</p>
-					<p className="text-md font-bold my-3">{data.description}</p>
+					<p className="text-md my-3">{data.description}</p>
+					<img src={data.thumbnail} className="w-full h-80 rounded-md my-3" />
 					<EditorComponent
 						data={JSON.parse(data.data)}
 						editorCore={editorCore}

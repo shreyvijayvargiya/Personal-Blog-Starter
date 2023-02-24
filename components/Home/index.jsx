@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { DateIcon, DownArrow, ReadingTime } from "modules/Icons";
 import router from "next/router";
+import { useQuery } from "react-query";
+import { fetchAllBlogs } from "utils/api/blogsApi";
 import { BlogCard } from "modules";
 
 const Home = () => {
@@ -10,72 +12,14 @@ const Home = () => {
 		}
 	}, []);
 
+	const { data, isLoading } = useQuery(["allBlogs"], async () => {
+		setBlogs(await fetchAllBlogs());
+	});
+	const [blogs, setBlogs] = useState(null);
+
 	const openBlog = (id) => {
 		router.push(`/blog/${id}`);
 	};
-
-	const blogs = [
-		{
-			id: 1,
-			title: "50 Frontend Interview Questions",
-			image:
-				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png",
-			publishedDate: "21Jan",
-			description:
-				"Save the blog for the future and CRACK any interview in the WORLD.",
-			readingTime: "4 min",
-		},
-		{
-			id: 2,
-			title: "50 React Native Interview Questions",
-			image:
-				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png",
-			publishedDate: "15Jan",
-			readingTime: "3 min",
-			description:
-				"Save the blog for the future and CRACK any interview in the WORLD.",
-		},
-		{
-			id: 3,
-			title: "50 Node JS Interview Questions",
-			image:
-				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png",
-			publishedDate: "12Jan",
-			readingTime: "4 min",
-			description:
-				"Save the blog for the future and CRACK any interview in the WORLD.",
-		},
-		{
-			id: 4,
-			title: "50 Frontend Interview Questions",
-			image:
-				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_zmCB_vdzYAJZFPQdgX-w.png",
-			publishedDate: "21Jan",
-			readingTime: "4 min",
-			description:
-				"Save the blog for the future and CRACK any interview in the WORLD.",
-		},
-		{
-			id: 5,
-			title: "50 React Native Interview Questions",
-			image:
-				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*1vzAJCOZmj0zTKSR1KXGaA.png",
-			publishedDate: "15Jan",
-			readingTime: "4 min",
-			description:
-				"Save the blog for the future and CRACK any interview in the WORLD.",
-		},
-		{
-			id: 6,
-			title: "50 Node JS Interview Questions",
-			image:
-				"https://miro.medium.com/v2/resize:fit:720/format:webp/1*D5XupkCrFd6A38YDvNqHmQ.png",
-			publishedDate: "12Jan",
-			readingTime: "5 min",
-			description:
-				"Save the blog for the future and CRACK any interview in the WORLD.",
-		},
-	];
 
 	return (
 		<div className="flex flex-col justify-center items-center gap-4">
@@ -98,31 +42,33 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="grid text-left md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 xs:grid-cols-1 p-2 gap-4 md:w-3/5 sm:w-full xxs:w-full xs:w-full ">
-				{blogs.map((item) => (
-					<div onClick={() => openBlog(item.id)}>
-						<BlogCard>
-							<p className="text-xl">{item.title}</p>
-							<div className="flex justify-start gap-1 items-center text-xs text-gray-800 mb-3">
-								<div className="flex justify-start gap-2 items-center">
-									<div className="flex justify-start gap-1 items-center">
-										<DateIcon />
-										<p className="text-gray-800 dark:text-gray-400">
+				{!isLoading &&
+					blogs &&
+					blogs.map((item) => (
+						<div onClick={() => openBlog(item.id)}>
+							<BlogCard>
+								<p className="text-xl">{item.title}</p>
+								<p className="my-1">{item.description}</p>
+								<img src={item.thumbnail} className="w-full h-40 rounded-md" />
+								<div className="flex justify-start gap-1 items-center text-xs text-gray-800 mb-3">
+									<div className="flex justify-start gap-2 items-center">
+										<div className="flex justify-start gap-1 items-center">
+											<DateIcon />
+											{/* <p className="text-gray-800 dark:text-gray-400">
 											{item.publishedDate}
-										</p>
-									</div>
-									<div className="flex justify-start gap-1 items-center">
-										<ReadingTime />
-										<p className="text-gray-800 dark:text-gray-400">
-											{item?.readingTime}
-										</p>
+										</p> */}
+										</div>
+										<div className="flex justify-start gap-1 items-center">
+											<ReadingTime />
+											<p className="text-gray-800 dark:text-gray-400">
+												{item?.readingTime}
+											</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<img src={item.image} className="w-full h-40 rounded-md" />
-							<p className="my-3">{item?.description}</p>
-						</BlogCard>
-					</div>
-				))}
+							</BlogCard>
+						</div>
+					))}
 			</div>
 		</div>
 	);

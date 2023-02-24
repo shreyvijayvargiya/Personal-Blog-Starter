@@ -5,7 +5,7 @@ import { HomeIcon, WriteIcon, BlogsIcon } from "modules/Icons";
 
 const AdminLayout = ({ children }) => {
 	return (
-		<div className="w-full h-screen">
+		<div className="w-full h-full min-h-screen">
 			<div className="md:fixed sm:fixed md:visible sm:visible top-10 h-full border-r border-gray-300 dark:border-gray-800 shadow-sm py-10 px-4 w-64 text-left">
 				<p className="text-xl font-semibold">Admin Dashboard</p>
 				<p

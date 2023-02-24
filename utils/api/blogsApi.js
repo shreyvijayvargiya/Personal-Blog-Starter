@@ -11,7 +11,6 @@ export const fetchAllBlogs = async() => {
       id: item.id
     })
   });
-  console.log(blogs, "blogs")
   return blogs;
 };
 

@@ -6,7 +6,7 @@ const EditorComponent = ({ editorCore, data, readOnly  }) => {
 	const ReactEditorJS = createReactEditorJS({});
 	return (
 		<div
-			className={`w-full h-full ${
+			className={`w-full h-auto ${
 				readOnly ? "border-none shadow-none" : "border border-gray-400"
 			} rounded-md shadow-md text-left`}
 		>
