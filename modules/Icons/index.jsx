@@ -10,9 +10,10 @@ import {
 	AiOutlineHome,
 } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
-import { BsFillPencilFill } from "react-icons/bs";
+import { BsFillPencilFill, BsSunFill } from "react-icons/bs";
+import { CiDark } from "react-icons/ci";
 import { SiHashnode } from "react-icons/si";
-import { MdOutlineArticle } from "react-icons/md";
+import { MdOutlineArticle, MdDarkMode } from "react-icons/md";
 
 export const DownArrow = () => {
 	return (
@@ -46,30 +47,42 @@ export const DateIcon = () => {
 	);
 };
 
+export const LightThemeIcon = () => {
+	return (
+		<BsSunFill size={18} className="text-gray-400" />
+	)
+};
+
+export const DarkThemeIcon = () => {
+	return (
+		<CiDark size={18} className="text-gray-900" />
+	)
+};
+
 export const TwitterIcon = () => {
-	return <AiFillTwitterCircle size={24} className="dark:text-gray-400" />;
+	return <AiFillTwitterCircle size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 
 export const GithubIcon = () => {
-	return <AiFillGithub size={24} className="dark:text-gray-400" />;
+	return <AiFillGithub size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 export const LinkedInIcon = () => {
-	return <AiFillLinkedin size={24} className="dark:text-gray-400" />;
+	return <AiFillLinkedin size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 export const DevToIcon = () => {
-	return <FaDev size={24} className="dark:text-gray-400" />;
+	return <FaDev size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 
 export const YoutubeIcon = () => {
-	return <AiFillYoutube size={24} className="dark:text-gray-400" />;
+	return <AiFillYoutube size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 
 export const HashnodeIcon = () => {
-	return <SiHashnode size={24} className="dark:text-gray-400" />;
+	return <SiHashnode size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 
 export const InstagramIcon = () => {
-	return <AiFillInstagram size={24} className="dark:text-gray-400" />;
+	return <AiFillInstagram size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 
 export const ReadingTime = () => {
