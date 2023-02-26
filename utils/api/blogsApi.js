@@ -26,7 +26,7 @@ export const removeBlog = async(id) => {
 };
 
 export const updateBlog = async(id, values) => {
-  await firebase.firestore().collection(blogs).doc(id).update({ values })
+  await firebase.firestore().collection("blogs").doc(id).update({ values })
   toast.success("Blog updated successfully")
 
 }

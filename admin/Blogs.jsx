@@ -19,11 +19,16 @@ const AdminBlogs = () => {
 		router.push(`/blog/${id}`)
 	}
 
+	const editBlog = (id) => {
+		router.push(`/admin/edit/${id}/`)
+	};
+
 	const ths = (
 		<tr className="text-left text-white bg-gray-900">
 			<th className="p-3">Id</th>
 			<th className="p-3">Title</th>
 			<th className="p-3">Date</th>
+			<th className="p-3"></th>
 			<th className="p-3"></th>
 		</tr>
 	);
@@ -54,20 +59,29 @@ const AdminBlogs = () => {
 												.toString()
 												.split(" ");
 											return (
-												<tr className="p-2 hover:bg-gray-50 border-t border-gray-900">
+												<tr className="p-2 hover:bg-gray-50 dark:hover:bg-gray-800 border-t border-gray-900 dark:border-gray-400">
 													<td className="p-3 border-r border-gray-900 text-left">
 														{index + 1}
 													</td>
 													<td
-														className="text-left p-3 border-r border-gray-900 cursor-pointer"
+														className="text-left p-3 border-r border-gray-900 dark:border-gray-400 cursor-pointer"
 														onClick={() => openBlog(item.id)}
 													>
 														{item?.title}
 													</td>
-													<td className="p-3 border-r border-gray-900 text-left">
+													<td className="p-3 border-r border-gray-900 dark:border-gray-400 text-left">
 														{date[2] + " " + date[1]}
 													</td>
-													<td className="p-3 border-r border-gray-900 word-wrap text-ellipsis">
+													<td className="p-3 border-r border-gray-900 dark:border-gray-400 word-wrap text-ellipsis">
+														{" "}
+														<button
+															className="bg-indigo-600 dark:bg-indigo-600 rounded-md px-2 py-1 text-sm text-white m-2 hover:bg-indigo-700"
+															onClick={() => editBlog(item.id)}
+														>
+															Edit
+														</button>
+													</td>
+													<td className="p-3 border-r border-gray-900 dark:border-gray-400 word-wrap text-ellipsis">
 														{" "}
 														<button
 															className="bg-pink-600 dark:bg-pink-600 rounded-md p-1 text-sm text-white m-2 hover:bg-pink-700"

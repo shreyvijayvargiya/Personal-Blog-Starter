@@ -14,15 +14,7 @@ const Body = ({ children }) => {
 	};
 
 	return (
-		<div
-			className={`${data.theme} outline-none h-auto min-h-screen`}
-			tabIndex="0"
-			onKeyDown={(e) => {
-				if (e.key === "t") {
-					toggle();
-				}
-			}}
-		>
+		<div className={`${data.theme} outline-none h-auto min-h-screen`}>
 			<div
 				className={`${data.theme} text-center bg-white dark:bg-gray-900 dark:text-gray-100 outline-none h-full min-h-screen`}
 			>
