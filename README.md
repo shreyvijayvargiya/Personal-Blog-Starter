@@ -142,18 +142,3 @@ You can change the entire UI, and architecture of the website according to your 
 You can change the database also, and you can use other UI libraries or styling libraries. 
 Do whatever you want using this repository this is yours and you have complete control.
 
-## Conclusion
-
-Every developer now can easily develop his own blogging website using this repository. 
-
-Every company needs a blogging platform of their own and can 
-use this repository to create one.
-
-It's complete control of your own website and within seconds your sample blog website is ready to deploy.
-
-Get the template
-
-Until next time, have a good day, people
-Shrey
-[iHateReading](ihatereading.in)
-
