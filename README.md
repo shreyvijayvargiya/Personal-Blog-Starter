@@ -1,4 +1,4 @@
-# Portfolio Website Repository
+# Ultimate blog website starter kit
 
 ### Full stack repository to develop and manage/run your own blogging website
 
