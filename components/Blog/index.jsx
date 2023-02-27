@@ -22,8 +22,10 @@ const BlogComponent = () => {
 			<div className="py-10 md:w-2/5 sm:w-full xxs:w-full xs:w-full mx-auto">
 				<SingleBlog id={id} />
 			</div>
-			<hr className="bg bg-gray-400 dark:bg-gray-800 my-2" />
-			<p>More articles</p>
+			<div className="border-t border-gray-300 dark:border-gray-800 w-full" />
+			<div className="md:w-2/5 sm:w-full xxs:w-full xs:w-full mx-auto text-left p-3">
+				<p className="text-2xl">More articles</p>
+			</div>
 			<div className="text-left md:w-2/5 sm:w-full xxs:w-full xs:w-full mx-auto ">
 				{!isLoading &&
 					blogs &&

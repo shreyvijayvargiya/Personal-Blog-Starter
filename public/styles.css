@@ -6,6 +6,9 @@ body {
 .ce-block__content {
   margin: 0px !important;
 }
+.codex-editor__redactor {
+  padding: 0px !important;
+}
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;

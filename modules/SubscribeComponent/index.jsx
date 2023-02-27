@@ -19,7 +19,13 @@ const SubscribeComponent = ({ flex }) => {
 			setState({ userEmail: state.userEmail, error: false, loader: true });
 			await addSubscriber(state.userEmail);
 			setState({ userEmail: "", error: false, loader: false });
-		} else {
+		} else if (!state.userEmail) {
+			setState({
+				userEmail: state.userEmail,
+				error: "Email required",
+				loader: false,
+			});
+		} else if (!emailIsValid(state.userEmail)) {
 			setState({
 				userEmail: state.userEmail,
 				error: "Invalid email",
@@ -46,6 +52,7 @@ const SubscribeComponent = ({ flex }) => {
 					setState({ userEmail: val, error: false, loader: false });
 				}}
 			/>
+			{state.error && <p className="text-red-600">{state.error}</p>}
 			<button
 				className="bg-gray-900 text-white m-2 hover:bg-black rounded-md p-2 focus:outline-none outline-none dark:bg-gray-50 dark:text-gray-900"
 				onClick={handleEmailSubmit}

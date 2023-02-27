@@ -16,7 +16,6 @@ export const fetchAllBlogs = async() => {
 
 export const fetchSingleBlog = async(id) => {
   const data = await firebase.firestore().collection("blogs").doc(id).get();
- 
   return data.data()
 };
 
@@ -26,9 +25,8 @@ export const removeBlog = async(id) => {
 };
 
 export const updateBlog = async(id, values) => {
-  await firebase.firestore().collection("blogs").doc(id).update({ values })
+  await firebase.firestore().collection("blogs").doc(id).update(values, { editedAt: Date.now()})
   toast.success("Blog updated successfully")
-
 }
 
 export const postBlog = async(values) => {

@@ -6,7 +6,7 @@ const Footer = () => {
 
 
 	return (
-		<div className="w-full border-t border-gray-300 dark:border-gray-800 p-4 z-10">
+		<div className="w-full border-t border-gray-300 dark:border-gray-800 p-4 z-1">
 			<div className="flex md:flex-col sm:flex-col xxs:flex-col xs:flex-col gap-4 justify-between items-center md:w-2/5 mx-auto sm:w-full xxs:w-full xs:w-full p-10">
 				<div className="flex justify-start flex-col gap-1 items-center">
 					<img
