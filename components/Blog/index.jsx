@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import router from "next/router";
-import { DateIcon } from "modules/Icons";
+import { DateIcon, EmptyIcon } from "modules/Icons";
 import { SingleBlog } from "modules";
 import { useQuery } from "react-query";
 import { fetchAllBlogs } from "utils/api/blogsApi";
@@ -27,8 +27,7 @@ const BlogComponent = () => {
 				<p className="text-2xl">More articles</p>
 			</div>
 			<div className="text-left md:w-2/5 sm:w-full xxs:w-full xs:w-full mx-auto ">
-				{!isLoading &&
-					blogs &&
+				{!isLoading && blogs.length > 0 ? (
 					blogs.map((item) => {
 						const date = new Date(item?.publishedDate).toString().split(" ");
 						return (
@@ -53,7 +52,31 @@ const BlogComponent = () => {
 								</BlogCard>
 							</div>
 						);
-					})}
+					})
+				) : (
+					<div className="text-center w-full h-screen my-4">
+						<div className="border border-gray-300 rounded-md dark:border-gray-800 shadow-md hover:shadow-lg py-10 px-2">
+							<EmptyIcon />
+							<p className="text-4xl">No blogs found</p>
+							<div className="w-full sm:w-full xxs:w-full xs:w-full mx-auto text-center px-6 py-2">
+								<div className="px-2 my-2 text-center w-full">
+									Add Firebase configuration in{" "}
+									<span className="bg-gray-900 dark:bg-gray-800 text-white px-2 py-1 rounded-md">
+										next.congif.js
+									</span>{" "}
+									Open{" "}
+									<span
+										onClick={() => router.push("/admin/write")}
+										className="underline text-indigo-600 cursor-pointer hover:text-indigo-700"
+									>
+										Admin Write
+									</span>{" "}
+									to write blogs
+								</div>
+							</div>
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);

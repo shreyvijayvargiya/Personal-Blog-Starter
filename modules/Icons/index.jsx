@@ -10,7 +10,7 @@ import {
 	AiOutlineHome,
 } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
-import { BsFillPencilFill, BsSunFill } from "react-icons/bs";
+import { BsFillPencilFill, BsSunFill, BsInboxesFill } from "react-icons/bs";
 import { CiDark } from "react-icons/ci";
 import { SiHashnode } from "react-icons/si";
 import { MdOutlineArticle, MdDarkMode } from "react-icons/md";
@@ -23,58 +23,64 @@ export const DownArrow = () => {
 		/>
 	);
 };
-export const HomeIcon = () => {
+
+export const EmptyIcon = () => {
 	return (
-		<AiOutlineHome size={18} className="dark:text-gray-400" />
-	)
-}
-export const BlogsIcon = () => {
-	return (
-		<MdOutlineArticle size={18} className="dark:text-gray-400" />
-	)
-}
-export const WriteIcon = () => {
-	return (
-		<BsFillPencilFill size={18} className="dark:text-gray-400" />
-	)
-}
-export const DateIcon = () => {
-	return (
-		<AiOutlineClockCircle
-			size={18}
-			className="dark:text-gray-400 my-2"
+		<BsInboxesFill
+			size={36}
+			className="w-full text-center mx-auto dark:text-gray-400 my-2"
 		/>
 	);
 };
 
+export const HomeIcon = () => {
+	return <AiOutlineHome size={18} className="dark:text-gray-400" />;
+};
+export const BlogsIcon = () => {
+	return <MdOutlineArticle size={18} className="dark:text-gray-400" />;
+};
+export const WriteIcon = () => {
+	return <BsFillPencilFill size={18} className="dark:text-gray-400" />;
+};
+export const DateIcon = () => {
+	return <AiOutlineClockCircle size={18} className="dark:text-gray-400 my-2" />;
+};
+
 export const LightThemeIcon = () => {
-	return (
-		<BsSunFill size={18} className="text-gray-400" />
-	)
+	return <BsSunFill size={18} className="text-gray-400" />;
 };
 
 export const DarkThemeIcon = () => {
-	return (
-		<CiDark size={18} className="text-gray-900" />
-	)
+	return <CiDark size={18} className="text-gray-900" />;
 };
 
 export const TwitterIcon = () => {
-	return <AiFillTwitterCircle size={18} className="dark:text-gray-400 text-gray-400" />;
+	return (
+		<AiFillTwitterCircle
+			size={18}
+			className="dark:text-gray-400 text-gray-400"
+		/>
+	);
 };
 
 export const GithubIcon = () => {
-	return <AiFillGithub size={18} className="dark:text-gray-400 text-gray-400" />;
+	return (
+		<AiFillGithub size={18} className="dark:text-gray-400 text-gray-400" />
+	);
 };
 export const LinkedInIcon = () => {
-	return <AiFillLinkedin size={18} className="dark:text-gray-400 text-gray-400" />;
+	return (
+		<AiFillLinkedin size={18} className="dark:text-gray-400 text-gray-400" />
+	);
 };
 export const DevToIcon = () => {
 	return <FaDev size={18} className="dark:text-gray-400 text-gray-400" />;
 };
 
 export const YoutubeIcon = () => {
-	return <AiFillYoutube size={18} className="dark:text-gray-400 text-gray-400" />;
+	return (
+		<AiFillYoutube size={18} className="dark:text-gray-400 text-gray-400" />
+	);
 };
 
 export const HashnodeIcon = () => {
@@ -82,12 +88,14 @@ export const HashnodeIcon = () => {
 };
 
 export const InstagramIcon = () => {
-	return <AiFillInstagram size={18} className="dark:text-gray-400 text-gray-400" />;
+	return (
+		<AiFillInstagram size={18} className="dark:text-gray-400 text-gray-400" />
+	);
 };
 
 export const ReadingTime = () => {
 	return <AiTwotoneHourglass size={18} className="dark:text-gray-400" />;
-}
+};
 const RenderIconComponent = ({ name }) => {
 	if (name === "Twitter") {
 		return <TwitterIcon />;
