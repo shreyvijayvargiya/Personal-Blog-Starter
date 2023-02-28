@@ -3,7 +3,7 @@
 	"version": "1",
 	"license": "MIT",
 	"scripts": {
-		"dev": "NODE_OPTIONS=\"--max_old_space_size=4096\" next -p 4001",
+		"dev": "next -p 3000",
 		"build": "next build ",
 		"start": "next start",
 		"analyze": "ANALYZE=true yarn build"
