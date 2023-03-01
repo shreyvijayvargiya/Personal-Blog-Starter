@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addSubscriber, checkIfAlreadySubcribed } from "utils/api/subscribeApi";
+import { addSubscriber } from "utils/api/subscribeApi";
 
 const SubscribeComponent = ({ flex }) => {
 	const [state, setState] = useState({

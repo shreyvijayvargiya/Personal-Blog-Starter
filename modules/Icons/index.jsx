@@ -13,7 +13,7 @@ import { FaDev } from "react-icons/fa";
 import { BsFillPencilFill, BsSunFill, BsInboxesFill } from "react-icons/bs";
 import { CiDark } from "react-icons/ci";
 import { SiHashnode } from "react-icons/si";
-import { MdOutlineArticle, MdDarkMode } from "react-icons/md";
+import { MdOutlineArticle } from "react-icons/md";
 
 export const DownArrow = () => {
 	return (
