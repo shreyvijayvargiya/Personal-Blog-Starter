@@ -70,7 +70,7 @@ const Home = () => {
 						return (
 							<div onClick={() => openBlog(item.id)}>
 								<BlogCard>
-									<div className="flex justify-between items-start md:gap-8 md:flex-row flex-wrap sm:flex-col-reverse xs:flex-col-reverse xxs:flex-col-reverse">
+									<div className="flex justify-between items-start md:gap-8 md:flex-row sm:flex-col-reverse xs:flex-col-reverse xxs:flex-col-reverse">
 										<div className="max-w-48">
 											<p className="text-xl my-2">{item.title}</p>
 											<p className="my-2 text-sm">{item.description}</p>

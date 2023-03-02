@@ -53,8 +53,8 @@ const AdminBlogs = () => {
 								<p>Fetching blogs...</p>
 							) : (
 								<>
-									{blogs ? (
-										blogs.map((item, index) => {
+									{blogs && blogs?.length >0 ? (
+										blogs?.map((item, index) => {
 											const date = new Date(item?.publishedDate)
 												.toString()
 												.split(" ");
